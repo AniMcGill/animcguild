@@ -3,3 +3,4 @@ venv
 *.pyc
 crpg
 manage.py
+test.db
