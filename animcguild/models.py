@@ -87,12 +87,6 @@ class Modifier(models.Model):
         ('WIS', "Wisdom"),
         ('CON', "Constitution"),
     )
-    ACTION = {
-        'STR':apply_str,
-        'DEX':apply_dex,
-        'WIS':apply_wis,
-        'CON':apply_con,
-    }
     stat = models.CharField(max_length=3, choices=STATS)
     mod = models.IntegerField()
     def apply_str(self,val):
@@ -103,6 +97,14 @@ class Modifier(models.Model):
         self.hero.wisdom += val
     def apply_con(self,val):
         self.hero.constitution += val
+
+    ACTION = {
+        'STR':apply_str,
+        'DEX':apply_dex,
+        'WIS':apply_wis,
+        'CON':apply_con,
+    }
+
     def apply_mod(self):
         ACTION[self.stat](self.mod)
     def end_mod(self):
