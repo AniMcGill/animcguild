@@ -1,4 +1,4 @@
-Django==1.5.4
+Django~>1.11.18
 numexpr==2.2.1
 numpy==1.7.1
 wsgiref==0.1.2
